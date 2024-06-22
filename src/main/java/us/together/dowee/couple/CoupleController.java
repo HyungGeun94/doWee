@@ -17,12 +17,6 @@ public class CoupleController {
     private final CoupleService coupleService;
 
 
-//    @GetMapping("/couple/create")
-//    public String create(CoupleForm coupleForm) {
-//        return "coupleCreate";
-//    }
-
-
     @PostMapping("/couple/create")
     public ResponseEntity<?> create(@Valid @RequestBody CoupleForm coupleForm, BindingResult bindingResult) {
 
@@ -31,7 +25,6 @@ public class CoupleController {
         }
 
         if(!coupleForm.getPassword1().equals(coupleForm.getPassword2())){
-            bindingResult.rejectValue("password2","errorpassword2","비밀번호가 일치하지 않습니다.");
 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("값이 올바르지 않습니다(비밀번호가 두개가 다름)");
 
@@ -39,10 +32,8 @@ public class CoupleController {
 
         try {
             Integer coupldId = coupleService.join(coupleForm);
-            System.out.println("coupldId = " + coupldId);
         }catch (Exception e){
-            bindingResult.reject("404", "이메일 혹은 아이디 " +
-                    "이미 존재");
+
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이메일 혹은 아이디가 이미존재합니다");
         }
 
