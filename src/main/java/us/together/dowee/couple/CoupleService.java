@@ -17,6 +17,7 @@ public class CoupleService {
         couple.setUserName(coupleForm.getUsername());
 //        couple.setRole();
         couple.setPassword(coupleForm.getPassword1());
+        couple.setEmail(coupleForm.getEmail());
 
         coupleRepository.save(couple);
         return couple.getCoupleId();
