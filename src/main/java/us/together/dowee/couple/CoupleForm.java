@@ -14,11 +14,11 @@ public class CoupleForm {
     String username;
 
     @NotEmpty(message = "비밀번호는 비어 있을 수 없습니다.")
-    @Size(min = 3,max = 20, message = "비밀번호는 10자 이상, 20자 이하여야 합니다.")
+    @Size(min = 3,max = 20, message = "비밀번호는 3자 이상, 20자 이하여야 합니다.")
     String password1;
 
     @NotEmpty(message = "비밀번호는 비어 있을 수 없습니다.")
-    @Size(min = 3,max = 20, message = "비밀번호는 10자 이상, 20자 이하여야 합니다.")
+    @Size(min = 3,max = 20, message = "비밀번호는 3자 이상, 20자 이하여야 합니다.")
     String password2;
 
     @NotEmpty(message = "이메일 주소를 입력해주세요")

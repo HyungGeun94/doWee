@@ -10,23 +10,29 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController
+//@RestController
 @RequiredArgsConstructor
+@Controller
 public class CoupleController {
 
     private final CoupleService coupleService;
 
+    @GetMapping("/couple/create")
+    public String getCreate(CoupleForm coupleForm) {
+        return "coupleCreate";
+    }
+
 
     @PostMapping("/couple/create")
-    public ResponseEntity<?> create(@Valid @RequestBody CoupleForm coupleForm, BindingResult bindingResult) {
+    public String create(@Valid CoupleForm coupleForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("값이 올바르지 않습니다(@Valid)에 걸림");
+            return "coupleCreate";
         }
 
         if(!coupleForm.getPassword1().equals(coupleForm.getPassword2())){
 
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("값이 올바르지 않습니다(비밀번호가 두개가 다름)");
+            return "coupleCreate";
 
         }
 
@@ -34,10 +40,10 @@ public class CoupleController {
             Integer coupldId = coupleService.join(coupleForm);
         }catch (Exception e){
 
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이메일 혹은 아이디가 이미존재합니다");
+            return "coupleCreate";
         }
 
 
-        return ResponseEntity.ok("ok");
+        return "redirect:/";
     }
 }

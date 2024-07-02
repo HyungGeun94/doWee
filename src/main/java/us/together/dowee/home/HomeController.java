@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
 
-    @ResponseBody
     @GetMapping("/")
     public String Home(){
-        return "여기가홈이야";
+        return "home";
     }
 }
