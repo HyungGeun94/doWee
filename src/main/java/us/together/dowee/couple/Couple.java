@@ -23,6 +23,4 @@ public class Couple {
     @Column(unique = true)
     private String email;
 
-
-
 }
