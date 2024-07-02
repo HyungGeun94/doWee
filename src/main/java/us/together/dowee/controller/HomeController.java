@@ -1,4 +1,4 @@
-package us.together.dowee.home;
+package us.together.dowee.controller;
 
 
 import org.springframework.stereotype.Controller;

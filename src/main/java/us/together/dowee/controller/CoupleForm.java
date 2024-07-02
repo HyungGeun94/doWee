@@ -1,4 +1,4 @@
-package us.together.dowee.couple;
+package us.together.dowee.controller;
 
 
 import jakarta.validation.constraints.*;
