@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import us.together.dowee.service.CoupleService;
 
 
-//@RestController
 @RequiredArgsConstructor
 @Controller
 public class CoupleController {
